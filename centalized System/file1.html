@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Mindtree Orchard
+        </title>
+       <style>
+body{
+background : black;
+color:white;
+}
+
+form{
+margin-left:530px;
+margin-top:35px;}
+#mytable{
+border:1px double red;
+;
+}
+th{
+color:white;
+background:black;}
+
+
+        </style>
+        <script>
+         var arr=[];
+         var len=0;
+            function MakeTable(){
+                var tbl = document.getElementById("mytable");
+                var Row = tbl.insertRow();
+                var Column1=tb1=Row.insertCell();
+                var Column2=tb1=Row.insertCell();
+                var Column3=tb1=Row.insertCell();
+                  var Column4=tb1=Row.insertCell();
+
+
+
+if(document.getElementById("Age").value>=60){
+
+Row.style.color="red";
+               }else if(document.getElementById("Age").value<=30){
+Row.style.color="green";
+
+}
+
+
+arr[len]=parseInt(document.getElementById("Age").value);
+ len = arr.length+1
+                Column1.innerHTML=document.getElementById("name").value;
+                Column2.innerHTML=document.getElementById("State").value;
+                Column3.innerHTML=document.querySelector('input[name="gender"]:checked').value;
+                Column4.innerHTML=document.getElementById("Age").value
+          
+
+    
+            }
+
+
+function av(){
+
+
+var num=0;
+var totalSum=0.00;
+for(var i in arr) {
+num++;
+    totalSum = totalSum + arr[i];
+     
+}var avg=totalSum/num;
+
+document.querySelector('div').innerHTML=avg.toFixed(2);
+
+
+
+}
+
+
+function max(){
+var max1;
+ max1=arr[0];
+for(var i in arr){
+
+if(max1<arr[i]){
+max1 = arr[i]
+}
+
+}
+
+document.querySelector('section').innerHTML=max1;
+
+}
+        </script>
+    </head>
+    <body src="RestApiss.PNG">
+  <center><h1>Mindtree Orchard</h1></center>
+        <form id="record" onsubmit= "MakeTable();return false;",required>
+          
+        
+        <label for= "name" >Name:
+        <input type ="text" name = "name"  maxlength = 15 id = "name" placeholder ="Enter your name " required><br><br>
+        <label for = "State" >
+        State : <select id= "State" value = "State" name ="State" >
+
+        <option> Madhya Pradesh</Options>
+        <option> Maharashtra</Options>
+        <option> TamilNadu</Options>
+        <option> Orissa</Options>
+        <option>Asam</Options>
+        </select><br><br>
+        <label for= "Gender" >Gender: <input  type ="radio" id ="gender" name = "gender" value = "Male">
+        Male <input type ="radio" id ="gender" name = "gender" value = "Female"> Female<br><br>
+      
+        <label for= "Age" >Age:
+        <input type ="text" name = "Age"  maxlength = 3 id = "Age" placeholder ="Enter your Age " required><br><br>
+        <input type = "submit" value ="submit"  >
+
+
+
+
+
+
+<br>
+
+
+
+
+        </form></center>
+        
+        <h1>Details</h1>
+        <table border="2px" id="mytable">
+
+            <tr>
+                <th > Name</th>
+                <th> State</th>
+                <th> Gender</th>
+<th> Age</th>
+            </tr>
+        </table>
+<p> Average is : <input type="button" value="average" onclick="av()"><br></p>
+       <div> </div>
+
+<p> Maximum age of person : <button type ="button" value = "maximum" onclick="max()"> maximum</button></p>
+<section> </section>
+
+    </body>
+
+</html>
